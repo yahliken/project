@@ -10,11 +10,16 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class GameActivity extends AppCompatActivity {
 
+    private BoardGame boardGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_game);
+
+        boardGame = new BoardGame(this);
+        setContentView(boardGame);
+
+
 
     }
 }
