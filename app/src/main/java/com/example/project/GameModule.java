@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,8 +10,15 @@ import java.util.Random;
 
 public class GameModule {
 
-    private ArrayList<Card> deck;
-    private ArrayList<Card> player1 , player2;
+    public static ArrayList<Card> deck = new ArrayList<Card>();
+    public static ArrayList<Card> player1 = new ArrayList<Card>(), player2 = new ArrayList<Card>();
+    private FbModule instance;
+    private Context context;
+
+    public GameModule(Context context) {
+        this.context = context;
+    }
+
     public void newDeck(){
 
         Bitmap bitmap = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.back);
@@ -98,6 +106,7 @@ public class GameModule {
             }
             i++;
         }
+        instance = FbModule.setInstance(context);
 
     }
 
