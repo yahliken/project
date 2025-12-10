@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class GameModule {
 
-    public static ArrayList<Card> deck = new ArrayList<Card>();
+    public static ArrayList<Card> deck = new ArrayList<Card>(), trash = new ArrayList<Card>();
     public static ArrayList<Card> player1 = new ArrayList<Card>(), player2 = new ArrayList<Card>();
     private FbModule instance;
     private Context context;
@@ -18,9 +18,7 @@ public class GameModule {
     public GameModule(Context context) {
         this.context = context;
     }
-
-    public void newDeck(){
-
+    private void newDeck(){
         Bitmap bitmap = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.back);
         bitmap = Bitmap.createScaledBitmap(bitmap, 180, 250, true);
 
@@ -75,7 +73,7 @@ public class GameModule {
         }
     }
 
-    public void Shuffle(){
+    public void shuffle(){
         ArrayList<Card> temp = new ArrayList<>();
         Random rnd = new Random();
         for (int i = 0; i < deck.size(); i++) {
@@ -89,6 +87,8 @@ public class GameModule {
     }
 
     public void startGame(){
+        newDeck();
+        shuffle();
         int count = 1;
         int i = 0;
         while (count != 8){
@@ -107,6 +107,10 @@ public class GameModule {
             i++;
         }
         instance = FbModule.setInstance(context);
+        instance.setDeck(deck, "deck");
+        instance.setDeck(player1, "player1");
+        instance.setDeck(player2, "player2");
+        instance.setDeck(trash,"trash");
 
     }
 

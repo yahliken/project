@@ -47,6 +47,12 @@ public class FbModule {
                     Card currentCard = userSnapshot.getValue(Card.class);
                     GameModule.player2.add(currentCard);
                 }
+                GameModule.trash.clear();
+                DataSnapshot trashSnapshot = snapshot.child("trash");
+                for(DataSnapshot userSnapshot : trashSnapshot.getChildren()){
+                    Card currentCard = userSnapshot.getValue(Card.class);
+                    GameModule.trash.add(currentCard);
+                }
             }
 
             @Override
