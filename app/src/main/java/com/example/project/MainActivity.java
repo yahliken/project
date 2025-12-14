@@ -13,20 +13,35 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button board;
+    private Button twoPlayers, againstComputer;
+    private int player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        board =findViewById(R.id.board);
-        board.setOnClickListener(this);
+        twoPlayers = findViewById(R.id.twoPlayers);
+        twoPlayers.setOnClickListener(this);
+        againstComputer = findViewById(R.id.againstComputer);
+        againstComputer.setOnClickListener(this);
+
+    }
+
+    public void whichPlayer (int playerNum){
+        player = playerNum;
     }
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this, GameActivity.class);
-        startActivity(i);
+        Intent iStartGame = new Intent(this, GameActivity.class);
+        if(v == twoPlayers){
+            CustomDialog customDialog = new CustomDialog(this);
+            customDialog.show();
+        }
+        else{
+
+        }
+
     }
 }

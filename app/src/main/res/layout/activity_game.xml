@@ -14,6 +14,6 @@
         android:text="Board"
         android:textSize="30dp"
         android:gravity="center"
-        android:background="#03A9F4"/>
+        android:background="#03A9F4"></TextView>
 
 </LinearLayout>

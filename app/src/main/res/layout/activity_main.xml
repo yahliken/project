@@ -14,14 +14,22 @@
         android:text="Rat A Tat Cat"
         android:textSize="30dp"
         android:gravity="center"
-        android:background="#03A9F4"/>
+        android:background="#03A9F4"></TextView>
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="board game"
+        android:text="1 vs 1"
         android:textSize="20dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:id="@+id/board"></Button>
+        android:id="@+id/twoPlayers"></Button>
+    <Button
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="Against computer"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:id="@+id/againstComputer"></Button>
 
 </LinearLayout>
