@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         twoPlayers.setOnClickListener(this);
         againstComputer = findViewById(R.id.againstComputer);
         againstComputer.setOnClickListener(this);
-
-
     }
 
     public void whichPlayer (int playerNum){
