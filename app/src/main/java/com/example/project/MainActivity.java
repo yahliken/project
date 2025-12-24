@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         againstComputer.setOnClickListener(this);
     }
 
+
     public void whichPlayer (int playerNum){
         player = playerNum;
     }
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == twoPlayers){
             CustomDialog customDialog = new CustomDialog(this);
             customDialog.show();
+            iStartGame.putExtra("player", player);
+            startActivity(iStartGame);
         }
         else{
 

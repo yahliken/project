@@ -15,7 +15,6 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-
         boardGame = new BoardGame(this);
         setContentView(boardGame);
 
