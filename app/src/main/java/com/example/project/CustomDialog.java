@@ -2,6 +2,7 @@ package com.example.project;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -13,6 +14,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
 
     private RadioGroup radioGroup;
     private RadioButton radioPlayerOne,radioPlayerTwo;
+    private int player;
     private Button btnSubmit;
     private Context context;
     public CustomDialog(@NonNull Context context) {
@@ -30,10 +32,10 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
 
                 if( checkedId == radioPlayerOne.getId())
                 {
-                    ((MainActivity)context).whichPlayer(1);
+                    player = 1;
                 }
                 else if(checkedId == radioPlayerTwo.getId()){
-                    ((MainActivity)context).whichPlayer(2);
+                    player = 2;
                 }
             }
         }));
@@ -42,6 +44,9 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        dismiss();
+        Intent iStartGame = new Intent(context, GameActivity.class);
+            iStartGame.putExtra("player" , player);
+            context.startActivity(iStartGame);
+
     }
 }

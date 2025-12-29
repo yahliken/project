@@ -14,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button twoPlayers, againstComputer;
-    private int player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,19 +26,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         againstComputer.setOnClickListener(this);
     }
 
-
-    public void whichPlayer (int playerNum){
-        player = playerNum;
-    }
-
     @Override
     public void onClick(View v) {
-        Intent iStartGame = new Intent(this, GameActivity.class);
         if(v == twoPlayers){
             CustomDialog customDialog = new CustomDialog(this);
             customDialog.show();
-            iStartGame.putExtra("player", player);
-            startActivity(iStartGame);
         }
         else{
 
