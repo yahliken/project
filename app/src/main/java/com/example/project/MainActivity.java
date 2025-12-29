@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             customDialog.show();
         }
         else{
-
+            Intent i = new Intent(this, GameActivity.class);
+            startActivity(i);
         }
 
     }

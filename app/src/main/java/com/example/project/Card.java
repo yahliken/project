@@ -6,14 +6,16 @@ import android.graphics.Canvas;
 public class Card {
 
     private String type;
+    private int idFront;
+    private int idBack;
     private Bitmap bFront;
     private Bitmap bBack;
     private float x, y;
 
-    public Card(String type, Bitmap bFront, Bitmap bBack) {
+    public Card(String type, int idFront, int idBack) {
         this.type = type;
-        this.bFront = bFront;
-        this.bBack = bBack;
+        this.idFront = idFront;
+        this.idBack = idBack;
     }
 
     public String getType() {
@@ -22,19 +24,19 @@ public class Card {
     public void setType(String type) {
         this.type = type;
     }
-    public Bitmap getbFront() {
-        return bFront;
+    public int getidFront() {
+        return idFront;
     }
 
-    public void setbFront(Bitmap bFront) {
-        this.bFront = bFront;
+    public void setidFront(int idFront) {
+        this.idFront = idFront;
     }
-    public Bitmap getbBack() {
-        return bBack;
+    public int getidBack() {
+        return idBack;
     }
 
-    public void setbBack(Bitmap bBack) {
-        this.bBack = bBack;
+    public void setidBack(int idBack) {
+        this.idBack = idBack;
     }
     public float getY() {
         return y;

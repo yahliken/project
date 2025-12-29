@@ -5,8 +5,8 @@ import android.graphics.Bitmap;
 public class NumCard extends Card{
 
     private int value;
-    public NumCard(String type, Bitmap bFront, Bitmap bBack, int value) {
-        super(type, bFront, bBack);
+    public NumCard(String type, int idFront, int idBack, int value) {
+        super(type, idFront, idBack);
         this.value = value;
     }
 }
