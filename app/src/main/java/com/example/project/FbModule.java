@@ -69,7 +69,7 @@ public class FbModule {
     }
     public void setDeck(ArrayList<Card> arrayList, String deckName){
         //יוצר את החפיסה בדטהבייס בפעם הראשונה עבור כל חפיסה בנפרד
-        DatabaseReference myRef = firebaseDatabase.getReference();
+        DatabaseReference myRef = firebaseDatabase.getReference(deckName +"/");
         myRef.setValue(arrayList);
     }
 

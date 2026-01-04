@@ -8,8 +8,6 @@ public class Card {
     private String type;
     private int idFront;
     private int idBack;
-    private Bitmap bFront;
-    private Bitmap bBack;
     private float x, y;
 
     public Card(String type, int idFront, int idBack) {
@@ -51,11 +49,7 @@ public class Card {
         this.x = x;
     }
 
-    public void drawBack(Canvas canvas){
-        canvas.drawBitmap(bBack,x,y,null);
-    }
-
-    public void drawFront(Canvas canvas){
-        canvas.drawBitmap(bFront,x,y,null);
+    public void Draw(Canvas canvas , Bitmap bitmap){
+        canvas.drawBitmap(bitmap, x, y, null);
     }
 }

@@ -20,6 +20,7 @@ public class GameModule {
     }
     private void newDeck(){
 
+        deck.clear();
         int back = R.drawable.back;
         int [] cardsImg = {R.drawable.c0, R.drawable.c1, R.drawable.c2, R.drawable.c3, R.drawable.c4, R.drawable.c5, R.drawable.c6, R.drawable.c7, R.drawable.c8, R.drawable.c9, R.drawable.draw2, R.drawable.peek, R.drawable.swap};
         for (int i = 0; i < 10; i++) {
@@ -63,15 +64,16 @@ public class GameModule {
     }
 
     public void shuffle(){
+        int size = deck.size();
         ArrayList<Card> temp = new ArrayList<>();
         Random rnd = new Random();
-        for (int i = 0; i < deck.size(); i++) {
+        for (int i = 0; i < size; i++) {
             int x = rnd.nextInt(deck.size());
             temp.add(deck.get(x));
             deck.remove(x);
         }
-        for (int i = 0; i < temp.size(); i++) {
-            deck.add(temp.remove(i));
+        for (int i = 0; i < size; i++) {
+            deck.add(temp.remove(0));
         }
     }
 
