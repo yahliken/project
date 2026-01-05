@@ -9,11 +9,13 @@ public class Card {
     private int idFront;
     private int idBack;
     private float x, y;
+    private boolean isExposed;
 
     public Card(String type, int idFront, int idBack) {
         this.type = type;
         this.idFront = idFront;
         this.idBack = idBack;
+        this.isExposed = false;
     }
 
     public String getType() {
@@ -48,6 +50,7 @@ public class Card {
     public void setX(float x) {
         this.x = x;
     }
+    public boolean getIsExposed(){return isExposed;}
 
     public void Draw(Canvas canvas , Bitmap bitmap){
         canvas.drawBitmap(bitmap, x, y, null);

@@ -82,7 +82,7 @@ public class GameModule {
         shuffle();
         int count = 1;
         int i = 0;
-        while (count != 8){
+        while (count != 9){
             Card c = deck.get(i);
             if(c.getType().equals("num")){
                 if(player1.size() < 4){
@@ -97,6 +97,8 @@ public class GameModule {
             }
             i++;
         }
+        shuffle();
+        //בגלל שבדקנו שכולם מספרים נותרנו עם הרבה מיוחדים שדילגנו עליהם לכן נערבב שוב כדי שלא יהיה מצב שכל ההתחלה של הקופה מיוחדים
         instance = FbModule.setInstance(context);
         instance.setDeck(deck, "deck");
         instance.setDeck(player1, "player1");
