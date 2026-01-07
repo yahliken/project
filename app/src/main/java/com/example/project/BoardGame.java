@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 public class BoardGame extends View {
     private Context context;
     private GameModule gameModule;
+    private float deckCardX;
+    private float deckCardY;
     private int canvasWidth, canvasHeight;
     private boolean isFirstTime = true;
     private int player;
@@ -33,6 +35,9 @@ public class BoardGame extends View {
         if(isFirstTime){
             canvasWidth = canvas.getWidth();
             canvasHeight = canvas.getHeight();
+            deckCardX = (canvasWidth/4)*3;
+            deckCardY = (canvasHeight/2) -200;
+
         }
 
         for (int i =0; i<4;i++){
@@ -64,8 +69,8 @@ public class BoardGame extends View {
                 gameModule.player1.get(i).Draw(canvas, bitmap2);
             }
 
-            gameModule.deck.get(0).setX((canvasWidth/4)*3);
-            gameModule.deck.get(0).setY((canvasHeight/2) -200);
+            gameModule.deck.get(0).setX(deckCardX);
+            gameModule.deck.get(0).setY(deckCardY);
             Bitmap bitmapDeck = BitmapFactory.decodeResource(getResources() , gameModule.deck.get(0).getidBack());
             bitmapDeck = Bitmap.createScaledBitmap(bitmapDeck, canvasWidth/4 -40, 380, false);
             gameModule.deck.get(0).Draw(canvas, bitmapDeck);
@@ -74,30 +79,31 @@ public class BoardGame extends View {
 
     }
 
-    @Override
+    /*@Override
     public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
+        super.onTouchEvent(event);
 
-        /*if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
 
             float touchX = event.getX();
             float touchY = event.getY();
-            //נקודת הנגיעה
 
             float deckX = gameModule.deck.get(0).getX();
             float deckY = gameModule.deck.get(0).getY();
-            //נקודת תחילת החפיסה
+
             float W = canvasWidth/4 -40;
-            // רוחב חפיסה
+
             float H = 380;
-            // גובה חפיסה
 
             if (touchX >= deckX && touchX <= deckX + W && touchY >= deckY &&touchY <= deckY + H){
                 gameModule.deck.get(0).setX(canvasWidth/2);
+                invalidate();
             }
 
-        }*/
+        }
 
-    }
+        return true;
+
+    }*/
 }
 

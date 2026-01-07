@@ -4,9 +4,9 @@ import android.graphics.Bitmap;
 
 public class NumCard extends Card{
 
-    private int value;
-    public NumCard(String type, int idFront, int idBack, int value) {
+    private int number;
+    public NumCard(String type, int idFront, int idBack, int number) {
         super(type, idFront, idBack);
-        this.value = value;
+        this.number = number;
     }
 }

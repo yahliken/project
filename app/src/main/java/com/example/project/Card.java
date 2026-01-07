@@ -9,13 +9,16 @@ public class Card {
     private int idFront;
     private int idBack;
     private float x, y;
-    private boolean isExposed;
+    private int idCard;
 
     public Card(String type, int idFront, int idBack) {
         this.type = type;
         this.idFront = idFront;
         this.idBack = idBack;
-        this.isExposed = false;
+        this.idCard = idBack;
+    }
+
+    public Card() {
     }
 
     public String getType() {
@@ -35,6 +38,34 @@ public class Card {
         return idBack;
     }
 
+    public void flipCard(Card card){
+        if(card.idCard == card.idBack){
+            card.idCard = card.idFront;
+        }
+        else{
+            card.idCard = card.idBack;
+        }
+    }
+
+    public boolean isFlipped(Card card){
+        if(card.idCard == card.idFront){
+            return true;
+        }
+        return false;
+    }
+
+    public void copy(NumCard card1, NumCard card2){
+        card1.setidBack(card2.getidBack());
+        card1.setidFront(card2.getidFront());
+        card1.setX(card2.getX());
+        card1.setY(card2.getY());
+    }
+
+    public void swap(NumCard card1, NumCard card2){
+        //לבדוק אם לעשות את הפעולות מיוחדים פנימיות או בגיימודול
+
+    }
+
     public void setidBack(int idBack) {
         this.idBack = idBack;
     }
@@ -50,8 +81,6 @@ public class Card {
     public void setX(float x) {
         this.x = x;
     }
-    public boolean getIsExposed(){return isExposed;}
-
     public void Draw(Canvas canvas , Bitmap bitmap){
         canvas.drawBitmap(bitmap, x, y, null);
     }

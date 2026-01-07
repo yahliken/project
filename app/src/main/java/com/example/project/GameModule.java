@@ -11,7 +11,7 @@ import java.util.Random;
 public class GameModule {
 
     public static ArrayList<Card> deck = new ArrayList<Card>(), trash = new ArrayList<Card>();
-    public static ArrayList<Card> player1 = new ArrayList<Card>(), player2 = new ArrayList<Card>();
+    public static ArrayList<NumCard> player1 = new ArrayList<NumCard>(), player2 = new ArrayList<NumCard>();
     private FbModule instance;
     private Context context;
 
@@ -86,11 +86,11 @@ public class GameModule {
             Card c = deck.get(i);
             if(c.getType().equals("num")){
                 if(player1.size() < 4){
-                    player1.add(deck.remove(i));
+                    player1.add((NumCard) deck.remove(i));
                     count++;
                 }
                 else {
-                    player2.add(deck.remove(i));
+                    player2.add((NumCard) deck.remove(i));
                     count++;
                 }
 
@@ -101,10 +101,12 @@ public class GameModule {
         //בגלל שבדקנו שכולם מספרים נותרנו עם הרבה מיוחדים שדילגנו עליהם לכן נערבב שוב כדי שלא יהיה מצב שכל ההתחלה של הקופה מיוחדים
         instance = FbModule.setInstance(context);
         instance.setDeck(deck, "deck");
-        instance.setDeck(player1, "player1");
-        instance.setDeck(player2, "player2");
+        instance.setPlayersDeck(player1, "player1");
+        instance.setPlayersDeck(player2, "player2");
         instance.setDeck(trash,"trash");
 
     }
+
+
 
 }
