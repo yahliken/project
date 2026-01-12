@@ -107,6 +107,10 @@ public class GameModule {
 
     }
 
+    public void peekCard(Card card){
+        ;
+    }
+
 
 
 }

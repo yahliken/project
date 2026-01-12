@@ -9,4 +9,15 @@ public class NumCard extends Card{
         super(type, idFront, idBack);
         this.number = number;
     }
+
+    public NumCard() {
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
 }

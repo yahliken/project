@@ -38,13 +38,13 @@ public class FbModule {
                 GameModule.player1.clear();
                 DataSnapshot player1Snapshot = snapshot.child("player1");
                 for(DataSnapshot userSnapshot : player1Snapshot.getChildren()){
-                    NumCard currentCard = (NumCard) userSnapshot.getValue(Card.class);
+                    NumCard currentCard = (NumCard) userSnapshot.getValue(NumCard.class);
                     GameModule.player1.add(currentCard);
                 }
                 GameModule.player2.clear();
                 DataSnapshot player2Snapshot = snapshot.child("player2");
                 for(DataSnapshot userSnapshot : player2Snapshot.getChildren()){
-                    NumCard currentCard = (NumCard) userSnapshot.getValue(Card.class);
+                    NumCard currentCard = (NumCard) userSnapshot.getValue(NumCard.class);
                     GameModule.player2.add(currentCard);
                 }
                 GameModule.trash.clear();
@@ -69,12 +69,12 @@ public class FbModule {
     }
     public void setDeck(ArrayList<Card> arrayList, String deckName){
         //יוצר את החפיסה בדטהבייס בפעם הראשונה עבור כל חפיסה בנפרד
-        DatabaseReference myRef = firebaseDatabase.getReference(deckName +"/");
+        DatabaseReference myRef = firebaseDatabase.getReference("Decks/" + deckName +"/");
         myRef.setValue(arrayList);
     }
     public void setPlayersDeck(ArrayList<NumCard> arrayList, String deckName){
         //יוצר את החפיסה בדטהבייס בפעם הראשונה עבור כל חפיסה בנפרד
-        DatabaseReference myRef = firebaseDatabase.getReference(deckName +"/");
+        DatabaseReference myRef = firebaseDatabase.getReference("Decks/" + deckName +"/");
         myRef.setValue(arrayList);
     }
 

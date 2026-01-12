@@ -54,18 +54,6 @@ public class Card {
         return false;
     }
 
-    public void copy(NumCard card1, NumCard card2){
-        card1.setidBack(card2.getidBack());
-        card1.setidFront(card2.getidFront());
-        card1.setX(card2.getX());
-        card1.setY(card2.getY());
-    }
-
-    public void swap(NumCard card1, NumCard card2){
-        //לבדוק אם לעשות את הפעולות מיוחדים פנימיות או בגיימודול
-
-    }
-
     public void setidBack(int idBack) {
         this.idBack = idBack;
     }

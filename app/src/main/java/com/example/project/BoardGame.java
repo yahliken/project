@@ -79,7 +79,7 @@ public class BoardGame extends View {
 
     }
 
-    /*@Override
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         super.onTouchEvent(event);
 
@@ -104,6 +104,6 @@ public class BoardGame extends View {
 
         return true;
 
-    }*/
+    }
 }
 
