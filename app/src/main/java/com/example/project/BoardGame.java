@@ -16,14 +16,12 @@ public class BoardGame extends View {
     private float deckCardY;
     private int canvasWidth, canvasHeight;
     private boolean isFirstTime = true;
-    private int player;
 
-    public BoardGame(Context context, int player) {
+    public BoardGame(Context context) {
         super(context);
         this.context = context;
         gameModule= new GameModule(context);
-        this.player = player;
-        if(player == 1){
+        if(GameActivity.player == 1){
             gameModule.startGame();
         }
     }
@@ -42,7 +40,7 @@ public class BoardGame extends View {
 
         for (int i =0; i<4;i++){
 
-            if(player==1){
+            if(GameActivity.player==1){
                 gameModule.player1.get(i).setX((canvasWidth/4)*i +35);
                 gameModule.player1.get(i).setY(canvasHeight-450);
                 Bitmap bitmap1 = BitmapFactory.decodeResource(getResources() , gameModule.player1.get(i).getidBack());

@@ -10,7 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class GameActivity extends AppCompatActivity {
-    private int player;
+    public static int player;
     private BoardGame boardGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class GameActivity extends AppCompatActivity {
 
         player= getIntent().getIntExtra("player", 1);
 
-        boardGame = new BoardGame(this, player);
+        boardGame = new BoardGame(this);
         setContentView(boardGame);
 
 

@@ -99,12 +99,19 @@ public class GameModule {
         }
         shuffle();
         //בגלל שבדקנו שכולם מספרים נותרנו עם הרבה מיוחדים שדילגנו עליהם לכן נערבב שוב כדי שלא יהיה מצב שכל ההתחלה של הקופה מיוחדים
-        instance = FbModule.setInstance(context);
-        instance.setDeck(deck, "deck");
-        instance.setPlayersDeck(player1, "player1");
-        instance.setPlayersDeck(player2, "player2");
-        instance.setDeck(trash,"trash");
+        setDecksFromFB();
+        //אחרי כל שינוי בחפיסות נעדכן את הפיירבייס
+    }
 
+    public void setDecksFromFB(){
+        instance = FbModule.setInstance(context);
+        if (GameActivity.player==1){
+            instance.setDeck(deck, "deck");
+            instance.setPlayersDeck(player1, "player1");
+            instance.setPlayersDeck(player2, "player2");
+            instance.setDeck(trash,"trash");
+        }
+        //שני המכשירים יוצרים מאזין בONDATACHAGE אבל רק מכשיר אחד מהם ייצור את החפיסות בפיירבייס והשני רק יתעדכן
     }
 
     public void peekCard(Card card){
