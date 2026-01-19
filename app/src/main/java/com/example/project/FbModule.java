@@ -35,7 +35,7 @@ public class FbModule {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // ניקינו את הרשימות ונעדכן אותן מחדש עם השינוי העדכני שנעשה בהן ועודכן בפיירבייס - לוקחים בלולאת פור את כל העצמים שמתחת לצומת של חפיסה מסויימת ומוסיפים אותם מחדש לרשימות שקיימות בגיימודול כך שמה שהרשימות מכילות זה את המצב הנוכחי שהן
-                if(snapshot != null)
+                if(snapshot.getValue() != null)
                 {
                     GameModule.deck.clear();
                     DataSnapshot deckSnapshot = snapshot.child("deck");
@@ -92,7 +92,7 @@ public class FbModule {
     public void ClearDecksFromFb(){
         //יוצר את החפיסה בדטהבייס בפעם הראשונה עבור כל חפיסה בנפרד
         DatabaseReference myRef = firebaseDatabase.getReference("Decks/");
-        myRef.setValue(null);
+        myRef.removeValue();
     }
 
 }
