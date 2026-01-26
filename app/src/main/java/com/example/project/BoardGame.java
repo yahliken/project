@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -73,6 +74,8 @@ public class BoardGame extends View {
             bitmapDeck = Bitmap.createScaledBitmap(bitmapDeck, canvasWidth/4 -40, 380, false);
             gameModule.deck.get(0).Draw(canvas, bitmapDeck);
 
+            gameModule.setDecksFromFB();
+
         }
 
 
@@ -95,8 +98,9 @@ public class BoardGame extends View {
             float H = 380;
 
             if (touchX >= deckX && touchX <= deckX + W && touchY >= deckY &&touchY <= deckY + H){
-                gameModule.deck.get(0).setX(canvasWidth/2);
-                invalidate();
+                /*gameModule.deck.get(0).setX(canvasWidth/2);
+                invalidate();*/
+                Toast.makeText(context, "hi", Toast.LENGTH_SHORT).show();
             }
 
         }

@@ -91,7 +91,7 @@ public class FbModule {
 
     public void ClearDecksFromFb(){
         //יוצר את החפיסה בדטהבייס בפעם הראשונה עבור כל חפיסה בנפרד
-        DatabaseReference myRef = firebaseDatabase.getReference("Decks/");
+        DatabaseReference myRef = firebaseDatabase.getReference("Decks");
         myRef.removeValue();
     }
 
