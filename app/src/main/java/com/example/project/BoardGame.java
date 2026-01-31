@@ -70,7 +70,7 @@ public class BoardGame extends View {
 
             gameModule.deck.get(0).setX(deckCardX);
             gameModule.deck.get(0).setY(deckCardY);
-            Bitmap bitmapDeck = BitmapFactory.decodeResource(getResources() , gameModule.deck.get(0).getidBack());
+            Bitmap bitmapDeck = BitmapFactory.decodeResource(getResources() , gameModule.deck.get(0).getidFront());
             bitmapDeck = Bitmap.createScaledBitmap(bitmapDeck, canvasWidth/4 -40, 380, false);
             gameModule.deck.get(0).Draw(canvas, bitmapDeck);
 
@@ -98,9 +98,10 @@ public class BoardGame extends View {
             float H = 380;
 
             if (touchX >= deckX && touchX <= deckX + W && touchY >= deckY &&touchY <= deckY + H){
-                /*gameModule.deck.get(0).setX(canvasWidth/2);
-                invalidate();*/
-                Toast.makeText(context, "hi", Toast.LENGTH_SHORT).show();
+                gameModule.deck.get(0).setX(canvasWidth/2);
+                gameModule.setDecksFromFB();
+                invalidate();
+                /*Toast.makeText(context, "hi", Toast.LENGTH_SHORT).show();*/
             }
 
         }
