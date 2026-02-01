@@ -26,4 +26,8 @@ public class GameActivity extends AppCompatActivity {
 
 
     }
+
+    public void setChange() {
+        boardGame.setChange();
+    }
 }

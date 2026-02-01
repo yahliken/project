@@ -114,9 +114,7 @@ public class GameModule {
         //שני המכשירים יוצרים מאזין בONDATACHAGE אבל רק מכשיר אחד מהם ייצור את החפיסות בפיירבייס והשני רק יתעדכן
     }
 
-    public void peekCard(Card card){
-        ;
-    }
+
 
 
 

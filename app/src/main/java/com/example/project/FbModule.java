@@ -62,7 +62,9 @@ public class FbModule {
                         Card currentCard = userSnapshot.getValue(Card.class);
                         GameModule.trash.add(currentCard);
                     }
+                    ((GameActivity)context).setChange();
                 }
+
                 //רק אם הצומת בפיירבייס לא ריקה כלומר החפיסות כתובות שם - רק אז נוכל למחוק את הרשימות בגיימודול ולעדכן אותן בהתאם לשינוי בפיירבייס
             }
 
