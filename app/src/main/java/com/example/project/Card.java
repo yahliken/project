@@ -10,17 +10,25 @@ public class Card {
     private int idBack;
     private float x, y;
     private int idCard;
+    private int value;
 
-    public Card(String type, int idFront, int idBack) {
+    public Card(String type, int idFront, int idBack, int value) {
         this.type = type;
         this.idFront = idFront;
         this.idBack = idBack;
+        this.value = value;
         this.idCard = idBack;
     }
 
     public Card() {
     }
+    public int getValue() {
+        return value;
+    }
 
+    public void setValue(int value) {
+        this.value = value;
+    }
     public String getType() {
         return type;
     }

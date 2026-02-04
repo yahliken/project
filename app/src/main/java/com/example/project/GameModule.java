@@ -11,7 +11,7 @@ import java.util.Random;
 public class GameModule {
 
     public static ArrayList<Card> deck = new ArrayList<Card>(), trash = new ArrayList<Card>();
-    public static ArrayList<NumCard> player1 = new ArrayList<NumCard>(), player2 = new ArrayList<NumCard>();
+    public static ArrayList<Card> player1 = new ArrayList<Card>(), player2 = new ArrayList<Card>();
     private FbModule instance;
     private Context context;
 
@@ -27,13 +27,13 @@ public class GameModule {
 
             if(i<9){
                 for(int k=0; k<4; k++){
-                    NumCard c = new NumCard("num", cardsImg[i], back, i);
+                    Card c = new Card("num", cardsImg[i], back, i);
                     deck.add(c);
                 }
             }
             else {
                 for(int k=0; k<9; k++){
-                    NumCard c = new NumCard("num", cardsImg[i], back, i);
+                    Card c = new Card("num", cardsImg[i], back, i);
                     deck.add(c);
                 }
             }
@@ -43,19 +43,19 @@ public class GameModule {
 
             if(i == 10){
                 for(int k=0; k<3; k++){
-                    Card c = new Card("draw2", cardsImg[i], back);
+                    Card c = new Card("draw2", cardsImg[i], back, -1);
                     deck.add(c);
                 }
             }
             if(i == 11){
                 for(int k=0; k<3; k++){
-                    Card c = new Card("peek", cardsImg[i], back);
+                    Card c = new Card("peek", cardsImg[i], back, -1);
                     deck.add(c);
                 }
             }
             if(i == 12){
                 for(int k=0; k<3; k++){
-                    Card c = new Card("swap", cardsImg[i], back);
+                    Card c = new Card("swap", cardsImg[i], back, -1);
                     deck.add(c);
                 }
             }
@@ -86,11 +86,11 @@ public class GameModule {
             Card c = deck.get(i);
             if(c.getType().equals("num")){
                 if(player1.size() < 4){
-                    player1.add((NumCard) deck.remove(i));
+                    player1.add(deck.remove(i));
                     count++;
                 }
                 else {
-                    player2.add((NumCard) deck.remove(i));
+                    player2.add(deck.remove(i));
                     count++;
                 }
 
@@ -107,8 +107,8 @@ public class GameModule {
         instance = FbModule.setInstance(context);
         if (GameActivity.player==1){
             instance.setDeck(deck, "deck");
-            instance.setPlayersDeck(player1, "player1");
-            instance.setPlayersDeck(player2, "player2");
+            instance.setDeck(player1, "player1");
+            instance.setDeck(player2, "player2");
             instance.setDeck(trash,"trash");
         }
         //שני המכשירים יוצרים מאזין בONDATACHAGE אבל רק מכשיר אחד מהם ייצור את החפיסות בפיירבייס והשני רק יתעדכן
