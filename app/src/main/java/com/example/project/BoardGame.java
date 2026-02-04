@@ -34,7 +34,7 @@ public class BoardGame extends View {
         if(isFirstTime) {
             canvasWidth = canvas.getWidth();
             canvasHeight = canvas.getHeight();
-            deckCardX = (canvasWidth / 4) * 3;
+            deckCardX = (canvasWidth / 4) * 3 -100;
             deckCardY = (canvasHeight / 2) - 200;
             isFirstTime = false;
         }
@@ -66,20 +66,21 @@ public class BoardGame extends View {
                     bitmap2 = Bitmap.createScaledBitmap(bitmap2, canvasWidth / 4 - 70, 350, false);
                     gameModule.player1.get(i).Draw(canvas, bitmap2);
                 }
-                gameModule.deck.get(0).setX(deckCardX);
-                gameModule.deck.get(0).setY(deckCardY);
-                Bitmap bitmapDeck = BitmapFactory.decodeResource(getResources(), gameModule.deck.get(0).getidBack());
-                bitmapDeck = Bitmap.createScaledBitmap(bitmapDeck, canvasWidth / 4 - 40, 380, false);
-                gameModule.deck.get(0).Draw(canvas, bitmapDeck);
-
-                gameModule.trash.get(0).setX(deckCardX+300);
-                gameModule.deck.get(0).setY(deckCardY);
-                Bitmap bitmapTrash = BitmapFactory.decodeResource(getResources(), gameModule.trash.get(0).getidFront());
-                bitmapTrash = Bitmap.createScaledBitmap(bitmapTrash, canvasWidth / 4 - 40, 380, false);
-                gameModule.trash.get(0).Draw(canvas, bitmapTrash);
-
-                gameModule.setDecksFromFB();
             }
+        gameModule.deck.get(0).setX(deckCardX);
+        gameModule.deck.get(0).setY(deckCardY);
+        Bitmap bitmapDeck = BitmapFactory.decodeResource(getResources(), gameModule.deck.get(0).getidBack());
+        bitmapDeck = Bitmap.createScaledBitmap(bitmapDeck, canvasWidth / 4 - 40, 380, false);
+        gameModule.deck.get(0).Draw(canvas, bitmapDeck);
+
+        if(gameModule.trash.isEmpty()== false){
+            gameModule.trash.get(0).setX(deckCardX-500);
+            gameModule.deck.get(0).setY(deckCardY);
+            Bitmap bitmapTrash = BitmapFactory.decodeResource(getResources(), gameModule.trash.get(0).getidFront());
+            bitmapTrash = Bitmap.createScaledBitmap(bitmapTrash, canvasWidth / 4 - 40, 380, false);
+            gameModule.trash.get(0).Draw(canvas, bitmapTrash);
+        }
+        gameModule.setDecksFromFB();
         }
 
     @Override
@@ -100,8 +101,8 @@ public class BoardGame extends View {
 
             if (touchX >= deckX && touchX <= deckX + W && touchY >= deckY &&touchY <= deckY + H){
                 Card tempCard = gameModule.deck.get(0);
-                tempCard.setX(canvasWidth/2);
-                gameModule.trash.add(gameModule.deck.remove(0));
+                gameModule.deck.remove(0);
+                gameModule.trash.add(tempCard);
                 gameModule.setDecksFromFB();
                 setChange();
 
